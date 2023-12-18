@@ -16,7 +16,10 @@ export default function BasicAlerts() {
         <Alert severity="warning">
           Sve ste bliži crvenoj zoni potrošnje električne energije!
         </Alert>
-        <Alert severity="info">{datum2} | Do sada ste potrosili 290 kWh.</Alert>
+        <Alert severity="info">{datum2} | Do sada ste potrosili 450 kWh.</Alert>
+        <Alert severity="info">
+          Ušli ste u placu zonu potrošnje električne energije
+        </Alert>
         <Alert severity="success">
           Nalazite se u zelenoj zoni potrošnje električne energije.
         </Alert>

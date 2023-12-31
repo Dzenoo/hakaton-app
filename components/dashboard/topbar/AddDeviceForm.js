@@ -5,9 +5,9 @@ import {
   VALIDATOR_MINLENGTH,
   VALIDATOR_REQUIRE,
 } from "../../../lib/validation";
+import { useSession } from "next-auth/react";
 import Button from "../../shared/form/Button";
 import { createDevices } from "../../../lib/actions/user.actions";
-import { getUserAuthId } from "../../../lib/functions";
 
 const AddDeviceForm = ({ closeDialog }) => {
   const { formState, inputChangeHandler, restartForm } = useForm(
@@ -27,7 +27,8 @@ const AddDeviceForm = ({ closeDialog }) => {
     },
     false
   );
-  const userIdAuth = getUserAuthId();
+  const { data } = useSession();
+  const userIdAuth = data?.user.id;
 
   async function createNewDevice(e) {
     e.preventDefault();

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Switch from "@mui/material/Switch";
 import { Delete } from "@mui/icons-material";
 import { deleteDevices } from "../../../lib/actions/user.actions";
-import { getUserAuthId } from "../../../lib/functions";
+import { useSession } from "next-auth/react";
 import { TextField, Button, Checkbox, FormControlLabel } from "@mui/material";
 
 const ScheduleManager = ({ onAddSchedule }) => {
@@ -68,7 +68,8 @@ const DevicesList = ({ devices }) => {
 
   const [deviceSchedules, setDeviceSchedules] = useState({});
 
-  const userIdAuth = getUserAuthId();
+  const { data } = useSession();
+  const userIdAuth = data?.user.id;
 
   const handleToggle = (index) => {
     setDeviceStates((prevStates) => {

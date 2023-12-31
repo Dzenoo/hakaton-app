@@ -48,12 +48,15 @@ const Input = ({
     onInputChange(id, state.value, state.isValid);
   }, [state.value, state.isValid, onInputChange, id]);
 
-  const changeHandler = useCallback((e) => {
-    dispatch({
-      type: "CHANGE",
-      payload: { value: e.target.value, validators: validators },
-    });
-  }, []);
+  const changeHandler = useCallback(
+    (e) => {
+      dispatch({
+        type: "CHANGE",
+        payload: { value: e.target.value, validators: validators },
+      });
+    },
+    [validators]
+  );
 
   const blurHandler = useCallback(() => {
     dispatch({ type: "BLUR", payload: { value: "", validators: [] } });

@@ -3,13 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { SidebarData } from "../../../constants/index";
 import { useEffect, useState } from "react";
-import { getUserAuthId } from "../../../lib/functions";
 import { signOut } from "next-auth/react";
 
 const Sidebar = () => {
   const [isMenuOpen, setisMenuOpen] = useState(false);
   const [sidebarClassName, setSidebarClassName] = useState("sidebar");
-  const isAuthenticated = getUserAuthId();
+  const { data } = useSession();
+  constisAuthenticated = data?.user.id;
 
   function exitSidebar() {
     setisMenuOpen(false);
@@ -35,7 +35,7 @@ const Sidebar = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [isMenuOpen]);
+  }, [isMenuOpen, handleResize]);
 
   return (
     <>

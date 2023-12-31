@@ -10,7 +10,7 @@ const Sidebar = () => {
   const [isMenuOpen, setisMenuOpen] = useState(false);
   const [sidebarClassName, setSidebarClassName] = useState("sidebar");
   const { data } = useSession();
-  constisAuthenticated = data?.user.id;
+  const isAuthenticated = data?.user.id;
 
   function exitSidebar() {
     setisMenuOpen(false);

@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth";
-import authOptions from "../../lib/session.js";
+import { authOptions } from "../../lib/session.js";
 import { redirect } from "next/navigation";
 import { fetchUser } from "../../lib/actions/user.actions";
 import DevicesList from "../../components/dashboard/devices/DevicesList";

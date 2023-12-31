@@ -4,6 +4,7 @@ import Image from "next/image";
 import { SidebarData } from "../../../constants/index";
 import { useEffect, useState } from "react";
 import { signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 const Sidebar = () => {
   const [isMenuOpen, setisMenuOpen] = useState(false);

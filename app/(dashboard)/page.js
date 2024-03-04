@@ -1,3 +1,5 @@
+import { getServerSession } from "next-auth";
+import { authOptions } from "../../lib/session.js";
 import { redirect } from "next/navigation";
 import { fetchUser } from "../../lib/actions/user.actions";
 import DevicesList from "../../components/dashboard/devices/DevicesList";
@@ -6,16 +8,15 @@ import TotalsConsumption from "../../components/dashboard/charts/TotalsConsumpti
 import CategoryConsumption from "../../components/dashboard/charts/CategoryConsumption";
 import AvgLastMonthConsumption from "../../components/dashboard/charts/AvgLastMonthConsumption";
 import HoursConsumption from "../../components/dashboard/charts/HoursConsumption";
-import { useSession } from "next-auth/react/index.js";
 
 export default async function Home() {
-  const { data } = useSession();
+  const session = await getServerSession(authOptions);
 
-  if (!data) {
+  if (!session) {
     redirect("/login");
   }
 
-  const user = await fetchUser(data?.user.id);
+  const user = await fetchUser(session?.user.id);
   const userData = JSON.parse(JSON.stringify(user));
 
   return (

@@ -41,9 +41,7 @@ const LoginForm = () => {
         throw new Error(result.error);
       }
 
-      if (result?.ok) {
-        router.push("/");
-      }
+      router.push("/");
     } catch (error) {
       toast.error(error.message);
     }

@@ -1,9 +1,9 @@
-import { authOptions } from "../../../../lib/session";
+// import { authOptions } from "../../../../lib/session";
 import NextAuth from "next-auth";
 import CredentialProvider from "next-auth/providers/credentials";
-import { connectToDb } from "./mongoose";
-import User from "./models/user";
-import { comparePassword } from "./functions";
+import { connectToDb } from "../../../../lib/mongoose";
+import { comparePassword } from "../../../../lib/functions";
+import User from "../../../../lib/models/user";
 
 const handler = NextAuth({
   secret: process.env.NEXT_AUTH_SECRET,

@@ -10,11 +10,11 @@ import AvgLastMonthConsumption from "../../components/dashboard/charts/AvgLastMo
 import HoursConsumption from "../../components/dashboard/charts/HoursConsumption";
 
 export default async function Home() {
-  const session = await getServerSession(authOptions);
+  // const session = await getServerSession(authOptions);
 
-  if (!session) {
-    redirect("/login");
-  }
+  // if (!session) {
+  //   redirect("/login");
+  // }
 
   // const user = await fetchUser(session?.user.id);
   // const userData = JSON.parse(JSON.stringify(user));
